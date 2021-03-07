@@ -1,0 +1,39 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+  <div class="checkout-page">
+     <form id="payment-form" >
+       <div position: "relative" width: "60%""  padding-right: "15px"; padding-left: "15px"; >
+        <div class="form-group">
+           <label>Name</label>
+           <input id="cardholder-name" class="form-control" placeholder="John Doe" />
+           
+        </div>
+        <div class="form-group">
+           <label>Card Number</label>
+           <input id="card-number" class="form-control" placeholder="4111 4111 4111 4111"/>
+           
+        </div>
+        <div class="form-group">
+           <label>Expiration Date</label>
+           <input id="exp-date" class="form-control" placeholder="MM / YY" />
+           
+        </div>
+        <button type="submit" id="pay_button" class="btn btn-primary mb-2" >Create Token API call</button>
+        <br><br>
+        <div class="form-group">
+          <label>Token</label>
+          <input id="token-code" class="form-control" />
+        </div>
+      </form>
+  </div>
+  
+  <script src="index.js"></script>
+  <script language="JavaScript" type="text/javascript" src="https://js.paymentsos.com/v2/latest/token.min.js"></script>
+  
+</body>
+</html>
