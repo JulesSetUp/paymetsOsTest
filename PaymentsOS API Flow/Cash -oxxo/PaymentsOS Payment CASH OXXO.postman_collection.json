@@ -1,0 +1,178 @@
+{
+	"info": {
+		"_postman_id": "069a2a70-94e9-4977-99ed-a3e3458f43ea",
+		"name": "PaymentsOS Payment CASH OXXO",
+		"description": "Use this collection to run 1-Step and 2-Step payment flows.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Alternative Payment Methods",
+			"item": [
+				{
+					"name": "Create Payment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"paymentid\", jsonData.id);"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "app_id",
+								"value": "{{app_id}}"
+							},
+							{
+								"key": "private_key",
+								"value": "{{private_key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "api-version",
+								"value": "1.3.0"
+							},
+							{
+								"key": "x-payments-os-env",
+								"value": "{{x-payments-os-env}}"
+							},
+							{
+								"key": "idempotency_key",
+								"value": "{{$randomInt}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 4097,\n  \"currency\": \"USD\"\n}"
+						},
+						"url": {
+							"raw": "https://api.paymentsos.com/payments",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paymentsos",
+								"com"
+							],
+							"path": [
+								"payments"
+							]
+						},
+						"description": "Create a new payment"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Charge",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "app_id",
+								"value": "{{app_id}}"
+							},
+							{
+								"key": "private_key",
+								"value": "{{private_key}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "api-version",
+								"value": "1.3.0"
+							},
+							{
+								"key": "x-payments-os-env",
+								"value": "{{x-payments-os-env}}"
+							},
+							{
+								"key": "idempotency_key",
+								"value": "{{$randomInt}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"payment_method\": {\n    \"source_type\": \"ewallet\",\n    \"type\": \"untokenized\",\n    \"vendor\": \"applepay\",\n    \"additional_details\": {\n      \"untokenized_result_status\": \"succeed\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "https://api.paymentsos.com/payments/{{paymentid}}/charges",
+							"protocol": "https",
+							"host": [
+								"api",
+								"paymentsos",
+								"com"
+							],
+							"path": [
+								"payments",
+								"{{paymentid}}",
+								"charges"
+							]
+						},
+						"description": "Create a new charge"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "app_id",
+			"value": "com.payu.airline_co"
+		},
+		{
+			"key": "private_key",
+			"value": "8f84617b-6741-4381-92bc-3c6ea326f34b"
+		},
+		{
+			"key": "public_key",
+			"value": "ca29b7c8-4003-4630-b332-aefc53fad03f"
+		},
+		{
+			"key": "x-payments-os-env",
+			"value": "test"
+		}
+	]
+}

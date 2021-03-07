@@ -1,0 +1,128 @@
+{
+	"id": "56b9551d-40a4-4ea4-9aec-7ea0afe33230",
+	"name": "PaymentsOS Payment CREDIT CARD",
+	"timestamp": "2021-03-07T07:48:06.924Z",
+	"collection_id": "3fef919b-089b-439e-a011-62f13b755248",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "a0a07c8d-4ed9-4252-b5c6-c6208201f0ea",
+			"name": "1. Create Token",
+			"url": "https://api.paymentsos.com/tokens",
+			"time": 476,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				476
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "4d63aeb9-7aa0-4763-b225-7e28982d6dbe",
+			"name": "2. Create Payment",
+			"url": "https://api.paymentsos.com/payments",
+			"time": 252,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				252
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f5a81603-fb1c-4b51-abe6-e0da7ebe5fbd",
+			"name": "3. Create Authorization",
+			"url": "https://api.paymentsos.com/payments/3718a1f2-9bc6-4ef1-812f-f8b96deaff75/authorizations",
+			"time": 501,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				501
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6c9db98e-35a7-4631-8a36-53cf69071946",
+			"name": "4. Create Capture",
+			"url": "https://api.paymentsos.com/payments/3718a1f2-9bc6-4ef1-812f-f8b96deaff75/captures",
+			"time": 311,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				311
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "78a90a53-9855-4aae-b09e-222cab52ef23",
+			"name": "5. Create Refund",
+			"url": "https://api.paymentsos.com/payments/3718a1f2-9bc6-4ef1-812f-f8b96deaff75/refunds",
+			"time": 307,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				307
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1847,
+	"collection": {
+		"requests": [
+			{
+				"id": "a0a07c8d-4ed9-4252-b5c6-c6208201f0ea",
+				"method": "POST"
+			},
+			{
+				"id": "4d63aeb9-7aa0-4763-b225-7e28982d6dbe",
+				"method": "POST"
+			},
+			{
+				"id": "f5a81603-fb1c-4b51-abe6-e0da7ebe5fbd",
+				"method": "POST"
+			},
+			{
+				"id": "6c9db98e-35a7-4631-8a36-53cf69071946",
+				"method": "POST"
+			},
+			{
+				"id": "78a90a53-9855-4aae-b09e-222cab52ef23",
+				"method": "POST"
+			}
+		]
+	}
+}
